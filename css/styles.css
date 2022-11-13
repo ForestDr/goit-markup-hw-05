@@ -34,6 +34,9 @@
 
     --primary-btn-color: #f5f4fa;
     --accent-hero-btn-bg-color: #188ce8;
+
+    --duration: 250ms;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -174,6 +177,8 @@ p {
     font-weight: 500;
     line-height: 1.14;
     letter-spacing: 0.02em;
+
+    transition: color var(--duration) var(--timing-function);
 }
 
 .site-nav-link:hover,
@@ -249,14 +254,18 @@ p {
     border: none;
     border-radius: 4px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    transition: background-color var(--duration) var(--timing-function);
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
     background-color: var(--accent-hero-btn-bg-color);
-    cursor: pointer;
 }
 
+.hero-btn:hover {
+    cursor: pointer;
+}
 
 /* Секція  */
 
@@ -325,6 +334,30 @@ p {
 .works-list {
     display: flex;
     justify-content: space-between;
+}
+
+.works-list > .item {
+    position: relative;
+}
+
+.works-list .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 27px 0;
+    width: 100%;
+
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--secondary-accent-color);
+    
+    background-color: rgba(47, 48, 58, 0.8);
 }
 
 .works-list .work {
@@ -397,12 +430,17 @@ p {
 
 .social-network-link.primary {
     color: var(--icons-color);
+
+    transition: color var(--duration) var(--timing-function),
+    background-color var(--duration) var(--timing-function);
 }
 
 .social-network-link.secondary {
     color: var(--secondary-accent-color);
 
     background-color: var(--icons-bg-color);
+
+    transition: background-color var(--duration) var(--timing-function);
 }
 
 .social-network-link.primary:hover,
@@ -439,6 +477,9 @@ p {
 
     border: 1px solid var(--icons-color);
     border-radius: 4px;
+
+    transition: color var(--duration) var(--timing-function),
+    border-color var(--duration) var(--timing-function);
 }
 
 .client-link:hover,
@@ -489,6 +530,8 @@ p {
 
 .addresses-list .contact {
     color: var(--adress-contact-color);
+
+    transition: color var(--duration) var(--timing-function);
 }
 
 .addresses-list .contact:hover,
@@ -533,6 +576,10 @@ p {
     background-color: var(--primary-btn-color);
     border: none;
     border-radius: 4px;
+
+    transition: color var(--duration) var(--timing-function),
+    background-color var(--duration) var(--timing-function),
+    box-shadow var(--duration) var(--timing-function);
 }
 
 .filter > .item:not(:last-child) {
@@ -567,6 +614,8 @@ p {
 
 .project-link {
     display: block;
+
+    transition: box-shadow var(--duration) var(--timing-function);
 }
 
 .project-link:hover,
@@ -574,8 +623,40 @@ p {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.project-thumb {
+    position: relative;
+
+    overflow: hidden;
+}
+
 .projects-list .project {
     display: block;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(33, 150, 243, 0.9);;
+
+    transform: translateY(100%);
+    transition: transform var(--duration) var(--timing-function);
+}
+
+.project-overlay-descr {
+    width: 322px;
+
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: var(--secondary-accent-color);
 }
 
 .projects-list .box {
@@ -601,4 +682,8 @@ p {
     line-height: 1.88;
     letter-spacing: 0.03em;
     color: var(--secondary-color);
+}
+
+.project-link:hover .project-overlay {
+    transform: translateY(0);
 }
