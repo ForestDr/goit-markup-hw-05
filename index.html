@@ -58,7 +58,7 @@
       <!-- герой -->
       <section class="hero">
         <h1 class="hero-title">Ефективні рішення для <br />вашого бізнесу</h1>
-        <button type="button" class="hero-btn">Замовити послугу</button>
+        <button class="hero-btn" data-modal-open type="button">Замовити послугу</button>
       </section>
 
       <!-- наші особливості  -->
@@ -450,5 +450,14 @@
         </div>
       </div>
     </footer>
+
+    <!-- Модальне вікно -->
+    <div class="backdrop" data-modal>
+      <div class="modal">
+        <button class="close-btn" data-modal-close type="button">&#10006;</button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
